@@ -1,0 +1,15 @@
+<template name="dashboardChart">
+    <div class="row">
+        <div class="col s12 section" >
+            <h2 class="test">Chart</h2>
+            <a class='blue darken-3 dropdown-button btn' href='#' data-activates='dataset-list' data-constrainwidth="false">Choose a dataset</a>
+            <ul id='dataset-list' class='dropdown-content'>
+                {{#each datasetIDs}}
+                    <li><a class="blue-text text-darken-3" href="#!" id={{.}}>{{.}}</a></li>
+                {{/each}}
+            </ul>
+            <a class="btn disabled" href="#" id="datasetIDLabel">{{datasetID}}</a>
+            <div id="dataset-chart"></div>
+        </div>
+    </div>
+</template>

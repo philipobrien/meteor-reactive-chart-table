@@ -1,0 +1,42 @@
+h2 {
+    font-weight: 300;
+}
+
+header, main, footer {
+    padding-left: 240px;
+}
+
+
+.c3-ygrid-line.threeYearAvg line {
+    stroke: green;
+}
+
+.c3-ygrid-line.threeYearAvg text {
+    fill: green;
+
+}
+
+
+.collapsible .collapsible {
+    margin: 0;
+}
+
+
+nav ul a span.badge {
+    position: initial;
+}
+
+span.badge.new {
+    background-color: #fff;
+    color: #26a69a;
+}
+
+#dataset-chart {
+    margin-top: 50px;
+}
+
+
+#datasetIDLabel {
+    margin-left: 10px;
+    position: absolute;
+}
