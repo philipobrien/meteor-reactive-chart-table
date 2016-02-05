@@ -1,5 +1,7 @@
 # Running the app
 
-clone it
-cd cloned-directory
+git clone https://github.com/philipobrien/meteor-reactive-chart-table.git
+
+cd meteor-reactive-chart-table
+
 meteor
