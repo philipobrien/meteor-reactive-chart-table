@@ -6,6 +6,7 @@ Meteor.startup(function() {
   My_First_Collection.remove({});
   
 
+
   for (var j = 1; j < 11; j++) {
     tempDoc.date = [];
     tempDoc.value = [];
@@ -36,4 +37,5 @@ Meteor.startup(function() {
     My_First_Collection.insert(tempDoc);
   }
   
+  My_First_Collection._ensureIndex({ "datasetID" : 1})
 })

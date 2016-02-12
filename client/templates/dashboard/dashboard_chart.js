@@ -2,7 +2,6 @@ datasetID = new ReactiveVar(1);
 
 var datasetIDs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-
 Template.dashboardChart.helpers({
     datasetIDs : function() {
         return datasetIDs;
@@ -19,7 +18,6 @@ Template.dashboardChart.rendered = function () {
 
     var data = My_First_Collection.find({datasetID: datasetID.get()}).fetch();
     plotData(data);
-    createLocalCollection(data);
 };
 
 Template.dashboardChart.events({
@@ -28,8 +26,6 @@ Template.dashboardChart.events({
         datasetID.set(parseInt(event.target.id));
         var data = My_First_Collection.find({datasetID: parseInt(event.target.id)}).fetch();
         updatePlot(data);
-        createLocalCollection(data);
-
     }
 });
 
@@ -39,6 +35,9 @@ var plotData = function(values) {
     var time = ['x'];
 
     chart = c3.generate({
+        onrendered: function() {
+            createLocalCollection();
+        },
         bindto: '#dataset-chart',
         data: {
             x: 'x',
@@ -114,11 +113,12 @@ var updatePlot = function(values) {
     });
 };
 
-var createLocalCollection = function(values) {
+var createLocalCollection = function() {
+    var values = My_First_Collection.find({datasetID: datasetID.get()}).fetch();
     var tempDoc = {};
     local.remove({});
+    tempDoc = {};
     for (var i in values[0].value) {
-        tempDoc = {};
         tempDoc.value = values[0].value[i];
         tempDoc.date = values[0].date[i];
         local.insert(tempDoc);
